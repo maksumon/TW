@@ -8,7 +8,7 @@
 import Foundation
 
 class ContactViewModel : ObservableObject {
-    @Published var contacts = [Contact]()
+    @Published var contacts: [Contact]?
     @Published var isLoading = false
     
     private var fileManager = FileManager.default
@@ -22,7 +22,21 @@ class ContactViewModel : ObservableObject {
         if fileManager.fileExists(atPath: documentDirectoryJSONURL().path) {
             decodeData(fromURL: documentDirectoryJSONURL())
         } else {
-            decodeData(fromURL: mainUrl)
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            let destURL = documentsURL!.appendingPathComponent("data").appendingPathExtension("json")
+            guard let sourceURL = Bundle.main.url(forResource: "data", withExtension: "json")
+            else {
+                print("Source File not found.")
+                return
+            }
+            let fileManager = FileManager.default
+            do {
+                try fileManager.copyItem(at: sourceURL, to: destURL)
+            } catch {
+                print("Unable to copy file")
+            }
+            
+            decodeData(fromURL: destURL)
         }
     }
     
@@ -50,7 +64,7 @@ class ContactViewModel : ObservableObject {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
-            let jsonData = try encoder.encode(contacts)
+            let jsonData = try encoder.encode(self.contacts)
             try jsonData.write(to: documentDirectoryJSONURL())
         } catch {
             print(error)
