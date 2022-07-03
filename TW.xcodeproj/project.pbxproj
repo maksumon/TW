@@ -14,6 +14,7 @@
 		9F6E78F72871860F007068C1 /* TWTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E78F62871860F007068C1 /* TWTests.swift */; };
 		9F6E79012871860F007068C1 /* TWUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E79002871860F007068C1 /* TWUITests.swift */; };
 		9F6E79032871860F007068C1 /* TWUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E79022871860F007068C1 /* TWUITestsLaunchTests.swift */; };
+		9F6E79112871867C007068C1 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6E79102871867C007068C1 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9F6E78FC2871860F007068C1 /* TWUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6E79002871860F007068C1 /* TWUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWUITests.swift; sourceTree = "<group>"; };
 		9F6E79022871860F007068C1 /* TWUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9F6E79102871867C007068C1 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		9F6E78E42871860D007068C1 /* TW */ = {
 			isa = PBXGroup;
 			children = (
+				9F6E790F28718667007068C1 /* models */,
 				9F6E78E52871860D007068C1 /* TWApp.swift */,
 				9F6E78E72871860D007068C1 /* ContentView.swift */,
 				9F6E78E92871860E007068C1 /* Assets.xcassets */,
@@ -125,6 +128,14 @@
 				9F6E79022871860F007068C1 /* TWUITestsLaunchTests.swift */,
 			);
 			path = TWUITests;
+			sourceTree = "<group>";
+		};
+		9F6E790F28718667007068C1 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				9F6E79102871867C007068C1 /* Contact.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F6E79112871867C007068C1 /* Contact.swift in Sources */,
 				9F6E78E82871860D007068C1 /* ContentView.swift in Sources */,
 				9F6E78E62871860D007068C1 /* TWApp.swift in Sources */,
 			);
