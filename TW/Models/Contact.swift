@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Contact: Codable {
+struct Contact: Codable, Hashable {
     let id, firstName, lastName, email, phone: String?
 
     enum CodingKeys: String, CodingKey {

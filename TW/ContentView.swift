@@ -8,9 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel = ContactViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List(viewModel.contacts, id: \.self) { contact in
+                ContactItemView(contact: contact)
+            }
+            .navigationTitle("Contacts")
+            .refreshable {
+                viewModel.getData()
+            }
+            .onTapGesture {
+                    print("touched item \(item)")
+            }
+            .navigationBarItems(
+                leading: (
+                    Button(
+                        action: {
+                            withAnimation {
+                                print("Search button pressed")
+                            }
+                        }
+                    ) {
+                        Image(systemName: "magnifyingglass")
+                            .imageScale(.large)
+                    }
+                ),
+                trailing: (
+                    Button(
+                        action: {
+                            withAnimation {
+                                print("Plus button pressed")
+                            }
+                        }
+                    ) {
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                    }
+                )
+            )
+        }
     }
 }
 
