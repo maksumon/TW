@@ -12,15 +12,19 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.contacts, id: \.self) { contact in
-                ContactItemView(contact: contact)
+            List(viewModel.contacts!, id: \.self) { contact in
+                if (contact.firstName != nil) {
+                    NavigationLink(destination: ContactDetailView(contact: contact)) {
+                        ContactItemView(contact: contact)
+                    }
+                }
             }
             .navigationTitle("Contacts")
             .refreshable {
                 viewModel.getData()
             }
-            .onTapGesture {
-                    print("touched item \(item)")
+            .onAppear {
+                viewModel.getData()
             }
             .navigationBarItems(
                 leading: (
