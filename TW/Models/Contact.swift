@@ -8,7 +8,7 @@
 import Foundation
 
 struct Contact: Codable, Hashable {
-    let id, firstName, lastName, email, phone: String?
+    var id, firstName, lastName, email, phone: String?
 
     enum CodingKeys: String, CodingKey {
         case id, firstName, lastName, email, phone
