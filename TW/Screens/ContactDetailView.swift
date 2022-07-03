@@ -103,7 +103,7 @@ struct ContactDetailView: View {
                 }
             )
         ).alert("Success", isPresented: $presentAlert, actions: {}, message: {
-            Text("Saved successfully")
+            Text("Changes saved successfully")
         })
     }
 }
